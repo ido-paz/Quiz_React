@@ -5,7 +5,7 @@ export class End extends React.Component{
         let {correct,incorrect,unanswered} = this.props;
         return (
             <section>
-                <header>The game has ended</header>
+                <header>The quiz has ended</header>
                 <content>
                     you have answered correctly {correct} out of {correct + incorrect + unanswered} questions
                     <br/>

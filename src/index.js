@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { Trivia } from './components/Trivia';
+import { QuizUI } from './components/QuizUI';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Trivia />
+    <QuizUI />
   </React.StrictMode>,
   document.getElementById('root')
 );
