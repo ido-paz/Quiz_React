@@ -11,34 +11,34 @@ export  class QuizUI extends React.Component{
         this.quiz = new Quiz();
         this.state = {event : 'start'};
         //
-        this.onAnswer = this.onAnswer.bind(this);
-        this.onStart = this.onStart.bind(this);
-        this.onNext = this.onNext.bind(this);
-        this.onPrevious = this.onPrevious.bind(this);
-        this.onEnd = this.onEnd.bind(this);
+        this.onAnswerQuestion = this.onAnswerQuestion.bind(this);
+        this.onStartQuiz = this.onStartQuiz.bind(this);
+        this.onNextQuestion = this.onNextQuestion.bind(this);
+        this.onPreviousQuestion = this.onPreviousQuestion.bind(this);
+        this.onEndQuiz = this.onEndQuiz.bind(this);
     }
     //
-    onAnswer(id,answer){
+    onAnswerQuestion(id,answer){
         this.quiz.answerQuestion(id,answer);
         this.setState({event:this.quiz.event })
     }
     //
-    onStart(){      
+    onStartQuiz(){      
         this.quiz.startQuiz();
         this.setState( {event : this.quiz.event});
     }
     //
-    onNext(){
+    onNextQuestion(){
         if(this.quiz.nextQuestion())
             this.setState( {event : this.quiz.event});
     }
     //
-    onPrevious(){
+    onPreviousQuestion(){
         if(this.quiz.previousQuestion())
             this.setState({event:this.quiz.event});        
     }
     //
-    onEnd(){
+    onEndQuiz(){
         this.quiz.endQuiz();
         this.setState({event:this.quiz.event}); 
     }
@@ -46,23 +46,23 @@ export  class QuizUI extends React.Component{
     render(){
         let quiz = this.quiz;        
         let questionIndex = quiz.questionIndex;
-        let nextFunction = questionIndex === quiz.questions.length-1 ? undefined : this.onNext;
-        let previousFunction = questionIndex === 0 ? undefined : this.onPrevious;
+        let nextFunction = questionIndex === quiz.questions.length-1 ? undefined : this.onNextQuestion;
+        let previousFunction = questionIndex === 0 ? undefined : this.onPreviousQuestion;
         switch (this.state.event) {
             case undefined:
             case 'start':
-                return <Start onStart={this.onNext}/>;
+                return <Start onStart={this.onNextQuestion}/>;
             case 'answer':
             case 'next':
             case 'previous':
                 let selectedQuestion = quiz.getCurrentQuestion();
                 let selectedAnswer = quiz.getCurrentAnswer();
-                return <Question question={selectedQuestion} answer={selectedAnswer} onAnswer={this.onAnswer}
-                                 onStart={this.onStart} onNext={nextFunction} onPrevious={previousFunction} onEnd={this.onEnd}/>;
+                return <Question question={selectedQuestion} answer={selectedAnswer} onAnswer={this.onAnswerQuestion}
+                                 onStart={this.onStartQuiz} onNext={nextFunction} onPrevious={previousFunction} onEnd={this.onEndQuiz}/>;
             case 'end':
                 let {correct,incorrect,unanswered} = this.quiz.answersSummery;
                 return <End correct={correct} incorrect={incorrect} unanswered={unanswered}
-                            onStart={this.onStart} />;                
+                            onStart={this.onStartQuiz} />;                
             default:
                 break;
         }
