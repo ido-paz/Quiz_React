@@ -1,13 +1,29 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+#root{
+  width: 95%;
+  margin: auto;
+  font-size: 4vw;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+header{
+  font-size: large;
+  text-align: center;
+  font-size: 5vw;
+}
+nav{
+  text-align: center;
+}
+button{
+  border-radius: 40%;
+  margin: 1%;
+  background-color: white;
+  font-size: 4vw;
+  cursor: pointer;
+}
+section{
+  box-shadow: 10px 10px 8px #888888;
+  border: 1px solid black;
+  padding: 5%;
+  background-image: linear-gradient(to right,rgb(255, 255, 255), rgb(172, 211, 255));
+}
+section div{
+  padding: 5%;
 }

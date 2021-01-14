@@ -4,13 +4,14 @@ export class End extends React.Component{
     render(){
         let {correct,incorrect,unanswered} = this.props;
         return (
-            <section>
+            <section className="end">
                 <header>The quiz has ended</header>
-                <content>
+                <div>
                     you have answered correctly {correct} out of {correct + incorrect + unanswered} questions
-                    <br/>
+                </div>
+                <nav>
                     <button onClick={this.props.onStart}>Start again</button>
-                </content>
+                </nav>
             </section>
         );
     }

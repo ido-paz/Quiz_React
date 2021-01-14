@@ -1,15 +1,17 @@
 import React from "react";
+import "./Start.css";
 
 export class Start extends React.Component{
     render(){
         return (
-            <section>
+            <section className='start'>
                 <header>Welcome to the quiz!</header>
-                <content>
+                <div>
                     in this quiz you are welcome to test your knowledge
-                    <br/>
+                </div>
+                <nav>
                     <button onClick={this.props.onStart}>Start</button>
-                </content>
+                </nav>
             </section>
         );
     }
