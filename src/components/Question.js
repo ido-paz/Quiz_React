@@ -1,4 +1,5 @@
 import React from "react";
+import { Timer } from "./Timer";
 
 export class Question extends React.Component{
     //
@@ -22,10 +23,11 @@ export class Question extends React.Component{
                     <br/>  
                     <input type="radio" id="yes_radio" name="answers" 
                         onChange={()=>{this.props.onAnswer(id,true)}} checked={yes_answer}/>Yes                
-                </div>
+                </div>                
                 <nav>
                     <button onClick={this.props.onStart}>Start</button>|
                     <button onClick={pf} disabled={pf === undefined? true : false}>Previous</button>|
+                    <Timer />|
                     <button onClick={nf} disabled={nf === undefined? true : false}>Next</button>|
                     <button onClick={this.props.onEnd}>End</button>
                 </nav>

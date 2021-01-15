@@ -58,11 +58,12 @@ export  class QuizUI extends React.Component{
                 let selectedQuestion = quiz.getCurrentQuestion();
                 let selectedAnswer = quiz.getCurrentAnswer();
                 return <Question question={selectedQuestion} answer={selectedAnswer} onAnswer={this.onAnswerQuestion}
-                                 onStart={this.onStartQuiz} onNext={nextFunction} onPrevious={previousFunction} onEnd={this.onEndQuiz}/>;
+                                 onStart={this.onStartQuiz} onNext={nextFunction} onPrevious={previousFunction} 
+                                 onTimerStop={this.onTimerStop} onEnd={this.onEndQuiz}/>;
             case 'end':
                 let {correct,incorrect,unanswered} = this.quiz.answersSummery;
                 return <End correct={correct} incorrect={incorrect} unanswered={unanswered}
-                            onStart={this.onStartQuiz} />;                
+                            elapsedSeconds={this.quiz.seconds} onStart={this.onStartQuiz} />;                
             default:
                 break;
         }

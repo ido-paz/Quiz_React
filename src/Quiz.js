@@ -8,6 +8,7 @@ export  class Quiz{
         this.getCurrentAnswer= this.getCurrentAnswer.bind(this);
         this.getCurrentQuestion = this.getCurrentQuestion.bind(this);
         this.getAnswersSummery = this.getAnswersSummery.bind(this);
+        this.tick = this.tick.bind(this);
         this.startQuiz = this.startQuiz.bind(this);
         //
         this.startQuiz();
@@ -21,9 +22,15 @@ export  class Quiz{
         this.answers = this.questions.map((q)=>{
             return {id:q.id,answer:undefined};
         }) ;        
-        this.answersSummery={};                       
+        this.answersSummery={};     
+        this.seconds =0;                  
         this.questionIndex = -1;
         this.event = 'start';
+        this.timerHandler = setInterval(this.tick,1000);
+    }
+    //
+    tick(){
+        this.seconds = this.seconds + 1;
     }
     //
     answerQuestion(id,answer){
@@ -63,6 +70,7 @@ export  class Quiz{
     }
     //
     endQuiz(){
+        clearInterval(this.timerHandler);
         this.event = 'end';
         this.answersSummery = this.getAnswersSummery();
     }
