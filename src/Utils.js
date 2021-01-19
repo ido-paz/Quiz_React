@@ -1,6 +1,6 @@
 export function getFormatedTime(...arg) {
-    if (arg.length==1)return getHHMMSS_From_Seconds(...arg);
-    else if(arg.length==3)return getHHMMSS_From_HMS(...arg);
+    if (arg.length===1)return getHHMMSS_From_Seconds(...arg);
+    else if(arg.length===3)return getHHMMSS_From_HMS(...arg);
 }
 //
 export function getHHMMSS_From_Seconds(seconds){

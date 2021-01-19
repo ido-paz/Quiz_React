@@ -23,7 +23,7 @@ export class Timer extends React.Component{
     //
     componentWillUnmount(){
         clearInterval(this.handler);
-        if(this.onStop != undefined)
+        if(this.onStop !== undefined)
             this.onStop(getFormatedTime(this.state.seconds));
     }
     //

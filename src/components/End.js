@@ -9,7 +9,7 @@ export class End extends React.Component{
             <section className="end">
                 <header>The quiz has ended</header>
                 <div>
-                    you have answered correctly {correct} of {correct + incorrect + unanswered} questions <br/>
+                    You have answered correctly {correct} of {correct + incorrect + unanswered} questions <br/>
                      in {hours}:{minutes}:{seconds}
                 </div>
                 <nav>

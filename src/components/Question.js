@@ -3,17 +3,13 @@ import { Timer } from "./Timer";
 
 export class Question extends React.Component{
     //
-    constructor(props){
-        super(props);
-    }    
-    //
     render(){
         let {text} = this.props.question;
         let {id,answer} = this.props.answer;
         let pf = this.props.onPrevious;
         let nf = this.props.onNext;
-        let yes_answer = answer != undefined && answer === true?true:false;
-        let no_answer =  answer != undefined && answer === false?true:false;
+        let yes_answer = answer !== undefined && answer === true?true:false;
+        let no_answer =  answer !== undefined && answer === false?true:false;
         return (
             <section className="question">
                 <header>{text}</header>
